@@ -1,0 +1,63 @@
+[gd_scene load_steps=9 format=3 uid="uid://dvkheco75wr80"]
+
+[ext_resource type="Script" uid="uid://qf7u1rwf67do" path="res://scripts/joe.gd" id="1_a27y7"]
+[ext_resource type="Texture2D" uid="uid://chnbvq22d12f5" path="res://assets/sprites/Joe and Dog/walk.png" id="2_tvuyw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kb3ao"]
+size = Vector2(14, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g8840"]
+atlas = ExtResource("2_tvuyw")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ja2u8"]
+atlas = ExtResource("2_tvuyw")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e5top"]
+atlas = ExtResource("2_tvuyw")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jfeaa"]
+atlas = ExtResource("2_tvuyw")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_iqjfl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g8840")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ja2u8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e5top")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jfeaa")
+}],
+"loop": true,
+"name": &"side",
+"speed": 5.0
+}]
+
+[node name="Joe" type="CharacterBody2D"]
+script = ExtResource("1_a27y7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_kb3ao")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -8)
+sprite_frames = SubResource("SpriteFrames_iqjfl")
+animation = &"side"
+autoplay = "default"
+frame_progress = 0.516107

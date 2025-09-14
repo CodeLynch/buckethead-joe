@@ -1,0 +1,82 @@
+[gd_scene load_steps=11 format=3 uid="uid://c7t7pgxk8ocvn"]
+
+[ext_resource type="Script" uid="uid://k8jyjcjih12p" path="res://scripts/dog.gd" id="1_kb3ao"]
+[ext_resource type="Texture2D" uid="uid://chnbvq22d12f5" path="res://assets/sprites/Joe and Dog/walk.png" id="2_vwjdu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kb3ao"]
+size = Vector2(11, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vwjdu"]
+atlas = ExtResource("2_vwjdu")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tpbal"]
+atlas = ExtResource("2_vwjdu")
+region = Rect2(48, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qjqk5"]
+atlas = ExtResource("2_vwjdu")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gmowd"]
+atlas = ExtResource("2_vwjdu")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iaoh4"]
+atlas = ExtResource("2_vwjdu")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i2xh6"]
+atlas = ExtResource("2_vwjdu")
+region = Rect2(48, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tpbal"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vwjdu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tpbal")
+}],
+"loop": true,
+"name": &"back",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qjqk5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gmowd")
+}],
+"loop": true,
+"name": &"front",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iaoh4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i2xh6")
+}],
+"loop": true,
+"name": &"side",
+"speed": 5.0
+}]
+
+[node name="Dog" type="CharacterBody2D"]
+script = ExtResource("1_kb3ao")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -7)
+shape = SubResource("RectangleShape2D_kb3ao")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-1, -8)
+sprite_frames = SubResource("SpriteFrames_tpbal")
+animation = &"front"
+autoplay = "front"
+frame_progress = 0.0511835
