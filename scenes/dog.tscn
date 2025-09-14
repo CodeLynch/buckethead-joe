@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://c7t7pgxk8ocvn"]
+[gd_scene load_steps=13 format=3 uid="uid://c7t7pgxk8ocvn"]
 
 [ext_resource type="Script" uid="uid://k8jyjcjih12p" path="res://scripts/dog.gd" id="1_kb3ao"]
 [ext_resource type="Texture2D" uid="uid://chnbvq22d12f5" path="res://assets/sprites/Joe and Dog/walk.png" id="2_vwjdu"]
+[ext_resource type="Texture2D" uid="uid://bhn1bh5n75biq" path="res://assets/sprites/Joe and Dog/bark.png" id="3_qjqk5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kb3ao"]
 size = Vector2(11, 14)
@@ -13,6 +14,10 @@ region = Rect2(16, 32, 16, 16)
 [sub_resource type="AtlasTexture" id="AtlasTexture_tpbal"]
 atlas = ExtResource("2_vwjdu")
 region = Rect2(48, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_laypt"]
+atlas = ExtResource("3_qjqk5")
+region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qjqk5"]
 atlas = ExtResource("2_vwjdu")
@@ -41,6 +46,14 @@ animations = [{
 }],
 "loop": true,
 "name": &"back",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_laypt")
+}],
+"loop": true,
+"name": &"bark",
 "speed": 5.0
 }, {
 "frames": [{
@@ -77,6 +90,10 @@ shape = SubResource("RectangleShape2D_kb3ao")
 texture_filter = 1
 position = Vector2(-1, -8)
 sprite_frames = SubResource("SpriteFrames_tpbal")
-animation = &"front"
+animation = &"bark"
 autoplay = "front"
-frame_progress = 0.0511835
+
+[node name="BarkCooldown" type="Timer" parent="."]
+wait_time = 0.2
+
+[connection signal="timeout" from="BarkCooldown" to="." method="_on_bark_cooldown_timeout"]

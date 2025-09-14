@@ -60,4 +60,4 @@ position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_iqjfl")
 animation = &"side"
 autoplay = "default"
-frame_progress = 0.516107
+frame_progress = 0.305855

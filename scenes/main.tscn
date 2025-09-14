@@ -1,12 +1,44 @@
-[gd_scene load_steps=3 format=3 uid="uid://gg0arcqtqeq2"]
+[gd_scene load_steps=4 format=3 uid="uid://gg0arcqtqeq2"]
 
 [ext_resource type="PackedScene" uid="uid://c7t7pgxk8ocvn" path="res://scenes/dog.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://dvkheco75wr80" path="res://scenes/joe.tscn" id="2_0xm2m"]
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0wfyh"]
+
 [node name="Node2D" type="Node2D"]
 
 [node name="Dog" parent="." instance=ExtResource("1_ig7tw")]
-position = Vector2(14, 15)
+position = Vector2(78, 87)
 
 [node name="Joe" parent="." instance=ExtResource("2_0xm2m")]
 position = Vector2(76, 124)
+speed = 50
+
+[node name="Bounds" type="Node2D" parent="."]
+
+[node name="Top" type="StaticBody2D" parent="Bounds"]
+position = Vector2(77, -1)
+rotation = -3.14159
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bounds/Top"]
+shape = SubResource("WorldBoundaryShape2D_0wfyh")
+
+[node name="Bottom" type="StaticBody2D" parent="Bounds"]
+position = Vector2(75, 127)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bounds/Bottom"]
+shape = SubResource("WorldBoundaryShape2D_0wfyh")
+
+[node name="Left" type="StaticBody2D" parent="Bounds"]
+position = Vector2(26, 64)
+rotation = 1.5708
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bounds/Left"]
+shape = SubResource("WorldBoundaryShape2D_0wfyh")
+
+[node name="Right" type="StaticBody2D" parent="Bounds"]
+position = Vector2(134, 64)
+rotation = -1.5708
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bounds/Right"]
+shape = SubResource("WorldBoundaryShape2D_0wfyh")
