@@ -9,7 +9,7 @@ a runner-type game a la Paper Boy, where you guide the runner instead of control
 - [x] infinite scrolling
 - [ ] spawn obstacles
 - [ ] Joe HP & Lose condition
-- [ ] Score
+- [x] Score
 - [ ] obstacle movements
 
 ### Sprites
@@ -28,7 +28,7 @@ a runner-type game a la Paper Boy, where you guide the runner instead of control
 - [ ] Dog damaged animations
 - [ ] Joe game over animation
 - [ ] Dog game over animation
-- [ ] UI
+- [x] UI
 - [ ] title screen
 
 ### Sound

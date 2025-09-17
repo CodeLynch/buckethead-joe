@@ -19,7 +19,7 @@ func follow(x_pos: float):
 
 func _physics_process(delta: float) -> void:
 	velocity = position.direction_to(destination) * speed
-	if position.distance_to(destination) > 5:
+	if position.distance_to(destination) > 1:
 		sprite.animation = "side"
 		move_and_slide()
 	else:
