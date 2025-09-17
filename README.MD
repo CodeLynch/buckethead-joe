@@ -6,14 +6,14 @@ a runner-type game a la Paper Boy, where you guide the runner instead of control
 ### Gameplay
 - [x] Dog movement
 - [x] Joe follows Dog mechanic
-- [ ] infinite scrolling
+- [x] infinite scrolling
 - [ ] spawn obstacles
 - [ ] Joe HP & Lose condition
 - [ ] Score
 - [ ] obstacle movements
 
 ### Sprites
-- [ ] placeholder background
+- [x] placeholder background
 - [x] placeholder Dog
 - [x] placeholder Joe
 - [x] Dog running animations

@@ -1,11 +1,39 @@
-[gd_scene load_steps=4 format=3 uid="uid://gg0arcqtqeq2"]
+[gd_scene load_steps=9 format=3 uid="uid://gg0arcqtqeq2"]
 
 [ext_resource type="PackedScene" uid="uid://c7t7pgxk8ocvn" path="res://scenes/dog.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://dvkheco75wr80" path="res://scenes/joe.tscn" id="2_0xm2m"]
+[ext_resource type="Script" uid="uid://bc7yxisn3rqu1" path="res://scripts/background.gd" id="3_jyhfs"]
+[ext_resource type="Texture2D" uid="uid://b0ou2o4fqjtk" path="res://assets/sprites/BG/tiles.png" id="3_sugp2"]
+[ext_resource type="PackedScene" uid="uid://bxhohfpcd7o63" path="res://scenes/obstacle.tscn" id="5_tbgi4"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0wfyh"]
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jyhfs"]
+texture = ExtResource("3_sugp2")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_tbgi4"]
+sources/0 = SubResource("TileSetAtlasSource_jyhfs")
+
 [node name="Node2D" type="Node2D"]
+
+[node name="Obstacle" parent="." instance=ExtResource("5_tbgi4")]
+position = Vector2(42, 23)
 
 [node name="Dog" parent="." instance=ExtResource("1_ig7tw")]
 position = Vector2(78, 87)
@@ -34,11 +62,27 @@ position = Vector2(26, 64)
 rotation = 1.5708
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bounds/Left"]
+position = Vector2(3.00003, 8.99999)
 shape = SubResource("WorldBoundaryShape2D_0wfyh")
 
 [node name="Right" type="StaticBody2D" parent="Bounds"]
-position = Vector2(134, 64)
+position = Vector2(129, 56)
 rotation = -1.5708
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bounds/Right"]
 shape = SubResource("WorldBoundaryShape2D_0wfyh")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+script = ExtResource("3_jyhfs")
+game_speed = 50
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(0, 144)
+
+[node name="TileMap" type="TileMap" parent="ParallaxBackground/ParallaxLayer"]
+texture_filter = 3
+position = Vector2(34, 48)
+tile_set = SubResource("TileSet_tbgi4")
+format = 2
+layer_0/z_index = -1
+layer_0/tile_data = PackedInt32Array(262147, 65536, 1, 196611, 65536, 1, 131075, 65536, 1, 65539, 65536, 1, 65538, 65536, 1, 65537, 65536, 1, 131073, 65536, 1, 131074, 65536, 1, 196610, 65536, 1, 262146, 65536, 1, 262145, 65536, 1, 196609, 65536, 1, 262149, 131072, 1, 262148, 65536, 1, 262144, 65536, 1, 196608, 65536, 1, 131072, 65536, 1, 65536, 65536, 1, 0, 65536, 1, -65536, 65536, 1, -131072, 65536, 1, -131071, 65536, 1, -65535, 65536, 1, -65534, 65536, 1, 2, 65536, 1, 3, 65536, 1, 1, 65536, 1, -131070, 65536, 1, -131069, 65536, 1, -65533, 65536, 1, -65532, 65536, 1, 4, 65536, 1, 65540, 65536, 1, 131076, 65536, 1, 196612, 65536, 1, 196613, 131072, 1, 131077, 131072, 1, 65541, 131072, 1, 5, 131072, 1, -65531, 131072, 1, -131068, 65536, 1, -131067, 131072, 1, -65537, 0, 1, -1, 0, 1, 65535, 0, 1, 131071, 0, 1, 196607, 0, 1, 262143, 0, 1, 327679, 0, 1, -131073, 0, 1, -196603, 131072, 1, -196608, 65536, 1, -196607, 65536, 1, -196606, 65536, 1, -196605, 65536, 1, -196604, 65536, 0, -131074, 0, 0, -65538, 0, 0, -2, 0, 0, 65534, 0, 0, 131070, 0, 0, 196606, 0, 0, 262142, 0, 0, 327678, 0, 0, -131075, 262144, 1, -65539, 262144, 1, -3, 262144, 1, 65533, 262144, 1, 131069, 262144, 1, 196605, 262144, 1, 262141, 262144, 1, 327677, 262144, 1, 131078, 196608, 1, 131079, 262144, 1, 131080, 262144, 1, 196615, 262144, 2, 196616, 262144, 2, 196617, 262144, 2, 131081, 262144, 1, 65542, 196608, 1, 65543, 262144, 1, 65544, 262144, 1, 65545, 262144, 1, 9, 262144, 0, 8, 262144, 0, 7, 262144, 0, 6, 196608, 0, -65530, 131072, 0, -65529, 131072, 0, -65528, 131072, 0, -65527, 131072, 0, 196614, 196608, 2, 262151, 262144, 3, 262152, 262144, 3, 262153, 262144, 3, 262150, 196608, 3, 393213, 262144, 1, 393214, 0, 0, 393215, 0, 1, 327685, 131072, 1, 327684, 65536, 1, 327683, 65536, 1, 327682, 65536, 1, 327681, 65536, 1, 327680, 65536, 0, 327686, 131072, 0, 327687, 131072, 0, 327688, 131072, 0, 327689, 131072, 0, -131066, 131072, 0, -196602, 131072, 0, -196601, 131072, 0, -196600, 131072, 0, -131064, 131072, 0, -131063, 131072, 0, -196599, 131072, 0, -131065, 131072, 0)
