@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://cc0gyfrffnocf"]
+
+[ext_resource type="Texture2D" uid="uid://rg7jiwf6s23a" path="res://assets/sprites/Obstacles/obstacles.png" id="1_3fsqg"]
+[ext_resource type="Script" uid="uid://cy0dsl57csodi" path="res://scripts/obstacleMove.gd" id="1_vo54q"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vo54q"]
+atlas = ExtResource("1_3fsqg")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3077f"]
+atlas = ExtResource("1_3fsqg")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t1v7j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vo54q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3077f")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2ah3c"]
+size = Vector2(10, 16)
+
+[node name="Biker" type="CharacterBody2D"]
+script = ExtResource("1_vo54q")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 3
+position = Vector2(0, -8)
+sprite_frames = SubResource("SpriteFrames_t1v7j")
+autoplay = "default"
+frame_progress = 0.57131
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_2ah3c")

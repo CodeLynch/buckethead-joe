@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var game_speed = 70
+@onready var game_speed = $'../..'.game_speed
 var screen_size: Vector2i
 
 func _ready() -> void:
@@ -8,6 +8,6 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	position.y += game_speed * delta
-
+	
 	if position.y > screen_size.y:
-		position.y -= screen_size.y - 16;
+		queue_free()

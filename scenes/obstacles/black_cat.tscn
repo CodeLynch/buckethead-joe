@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://bh8kacfwsvl5j"]
+
+[ext_resource type="Script" uid="uid://cy0dsl57csodi" path="res://scripts/obstacleMove.gd" id="1_3fko8"]
+[ext_resource type="Texture2D" uid="uid://rg7jiwf6s23a" path="res://assets/sprites/Obstacles/obstacles.png" id="1_lfpk3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3fko8"]
+atlas = ExtResource("1_lfpk3")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nfys4"]
+atlas = ExtResource("1_lfpk3")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dyo7x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3fko8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nfys4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_otqnn"]
+size = Vector2(16, 12)
+
+[node name="BlackCat" type="CharacterBody2D"]
+script = ExtResource("1_3fko8")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -8)
+sprite_frames = SubResource("SpriteFrames_dyo7x")
+autoplay = "default"
+frame_progress = 0.456439
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -6)
+shape = SubResource("RectangleShape2D_otqnn")

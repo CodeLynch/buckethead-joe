@@ -1,7 +1,8 @@
 extends CharacterBody2D
 
-@export var speed = 30
+@export var speed = 30 
 @onready var sprite = $AnimatedSprite2D
+@onready var speed_mod = $"..".SPEED_MOD
 
 var destination: Vector2 
 
@@ -16,7 +17,10 @@ func follow(x_pos: float):
 	else:
 		sprite.flip_h = true
 		
-
+func _process(delta: float) -> void:
+	if speed_mod > 1:
+		speed = speed * speed_mod
+	 
 func _physics_process(delta: float) -> void:
 	velocity = position.direction_to(destination) * speed
 	if position.distance_to(destination) > 1:

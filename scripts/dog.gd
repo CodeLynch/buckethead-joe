@@ -45,7 +45,6 @@ func _physics_process(delta: float) -> void:
 	get_input()
 	if not isBarking:
 		move_and_slide()
-	
 
 func _on_bark_cooldown_timeout() -> void:
 	isBarking = false 
