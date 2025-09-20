@@ -1,0 +1,63 @@
+[gd_scene load_steps=8 format=3 uid="uid://dg1bshj5bsx50"]
+
+[ext_resource type="Texture2D" uid="uid://cpme2068i1y3o" path="res://assets/sprites/BG/title.png" id="1_fgkus"]
+[ext_resource type="Script" uid="uid://dsnqiup2buocr" path="res://scripts/title_screen.gd" id="1_sa3yf"]
+[ext_resource type="FontFile" uid="uid://b2vlfvcw0nklx" path="res://assets/Early GameBoy.ttf" id="3_s4lrb"]
+[ext_resource type="Script" uid="uid://bqhm11p0dnkmq" path="res://scripts/press_start.gd" id="4_mgrm8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sa3yf"]
+atlas = ExtResource("1_fgkus")
+region = Rect2(0, 0, 160, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s4lrb"]
+atlas = ExtResource("1_fgkus")
+region = Rect2(160, 0, 160, 144)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mgrm8"]
+animations = [{
+"frames": [{
+"duration": 5.0,
+"texture": SubResource("AtlasTexture_sa3yf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s4lrb")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_sa3yf")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(79, 71)
+sprite_frames = SubResource("SpriteFrames_mgrm8")
+autoplay = "default"
+frame = 1
+frame_progress = 1.0
+
+[node name="PressStart" type="RichTextLabel" parent="."]
+texture_filter = 1
+offset_left = 39.0
+offset_top = 130.0
+offset_right = 227.0
+offset_bottom = 170.0
+theme_override_colors/default_color = Color(0.129412, 0.462745, 0.8, 1)
+theme_override_fonts/normal_font = ExtResource("3_s4lrb")
+theme_override_font_sizes/normal_font_size = 8
+text = "PRESS START"
+script = ExtResource("4_mgrm8")
+
+[node name="Blink" type="Timer" parent="PressStart"]
+wait_time = 0.5
+autostart = true
+
+[node name="Buffer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="PressStart/Blink" to="PressStart" method="_on_blink_timeout"]
+[connection signal="timeout" from="Buffer" to="." method="_on_buffer_timeout"]

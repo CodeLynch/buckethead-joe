@@ -1,10 +1,11 @@
-extends CharacterBody2D
+extends Area2D
 
 @export var speed = 30 
 @onready var sprite = $AnimatedSprite2D
 @onready var speed_mod = $"..".SPEED_MOD
 
 var destination: Vector2 
+signal got_hit()
 
 func _ready() -> void:
 	$"../Dog".bark_signal.connect(follow)
@@ -22,10 +23,13 @@ func _process(delta: float) -> void:
 		speed = speed * speed_mod
 	 
 func _physics_process(delta: float) -> void:
-	velocity = position.direction_to(destination) * speed
 	if position.distance_to(destination) > 1:
 		sprite.animation = "side"
-		move_and_slide()
+		position = position.move_toward(destination, delta * speed)
 	else:
 		sprite.animation = "default"
+		
 	
+func _on_body_entered(body: Node2D) -> void:
+	if body.is_in_group("obstacles"):
+		got_hit.emit()

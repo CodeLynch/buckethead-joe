@@ -1,0 +1,56 @@
+[gd_scene load_steps=4 format=3 uid="uid://0sylbuvh75ut"]
+
+[ext_resource type="FontFile" uid="uid://b2vlfvcw0nklx" path="res://assets/Early GameBoy.ttf" id="1_8juob"]
+[ext_resource type="Script" uid="uid://cyanh8or2bqt4" path="res://scripts/score_scene_script.gd" id="1_bak1h"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bak1h"]
+bg_color = Color(0.129412, 0.462745, 0.8, 1)
+
+[node name="Node2D" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_bak1h")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(4.09114, 3.69746)
+theme_override_styles/panel = SubResource("StyleBoxFlat_bak1h")
+
+[node name="ScoreLabel" type="RichTextLabel" parent="."]
+texture_filter = 1
+layout_mode = 2
+offset_left = 14.0
+offset_top = 45.0
+offset_right = 99.0
+offset_bottom = 65.0
+theme_override_colors/default_color = Color(0.909804, 0.905882, 0.796078, 1)
+theme_override_fonts/normal_font = ExtResource("1_8juob")
+theme_override_font_sizes/normal_font_size = 8
+text = "Your Score:"
+fit_content = true
+scroll_active = false
+tab_size = 5
+
+[node name="ScoreValue" type="RichTextLabel" parent="."]
+texture_filter = 1
+layout_mode = 2
+offset_left = 14.0
+offset_top = 58.0
+offset_right = 152.0
+offset_bottom = 118.0
+theme_override_colors/default_color = Color(0.909804, 0.905882, 0.796078, 1)
+theme_override_fonts/normal_font = ExtResource("1_8juob")
+theme_override_font_sizes/normal_font_size = 24
+text = "0000"
+fit_content = true
+scroll_active = false
+tab_size = 5
+
+[node name="Delay" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Delay" to="." method="_on_delay_timeout"]

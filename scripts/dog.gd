@@ -8,6 +8,7 @@ extends CharacterBody2D
 var norm_speed = speed
 var isBarking = false
 signal bark_signal(x_pos: float)
+signal got_hit()
 
 
 func get_input():
@@ -30,6 +31,7 @@ func get_input():
 func bark():
 	bark_signal.emit(global_position.x);
 	sprite.animation = "bark"
+	MusicManager.play_sfx("bark")
 	isBarking = true
 	barkCD.start();
 	
@@ -41,10 +43,14 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_released("BButton"):
 		speed = norm_speed 
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	get_input()
 	if not isBarking:
 		move_and_slide()
+	for index in get_slide_collision_count():
+		var collision = get_slide_collision(index)
+		if collision.get_collider().is_in_group("obstacles"): 
+			got_hit.emit()
 
 func _on_bark_cooldown_timeout() -> void:
 	isBarking = false 

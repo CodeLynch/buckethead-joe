@@ -15,6 +15,7 @@ func spawn_obstacle() -> void:
 	var obstacle_scene = obstacles.pick_random()
 	var obstacle_node = obstacle_scene.instantiate()
 	obstacle_node.position = Vector2i(rng.randi_range(X_MIN_LIMIT, X_MAX_LIMIT), -16)
+	obstacle_node.add_to_group("obstacles")
 	add_child(obstacle_node)
 	
 func _on_spawn_cooldown_timeout() -> void:

@@ -8,7 +8,7 @@ a runner-type game a la Paper Boy, where you guide the runner instead of control
 - [x] Joe follows Dog mechanic
 - [x] infinite scrolling
 - [x] spawn obstacles
-- [ ] ~~Joe HP &~~ Lose condition just one hp
+- [x] ~~Joe HP &~~ Lose condition just one hp
 - [x] Score
 - [ ] obstacle movements
 
@@ -26,13 +26,17 @@ a runner-type game a la Paper Boy, where you guide the runner instead of control
     - [x] biker
 ~~- [ ] Joe damaged animations~~
 ~~- [ ] Dog damaged animations~~
-- [ ] Joe game over animation
-- [ ] Dog game over animation
+- [x] Joe game over animation
+- [x] Dog game over animation
 - [x] UI
-- [ ] title screen
+- [x] title screen
 
 ### Sound
-- [ ] background music
-- [ ] sound effects
-- [ ] different title screen music
+- [x] background music
+- [x] sound effects
+- [x] different title screen music
+
+## Post Development 
+- [ ] export as runnable HTML
+- [ ] game cover
 

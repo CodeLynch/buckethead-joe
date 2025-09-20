@@ -4,9 +4,10 @@
 [ext_resource type="Script" uid="uid://cy0dsl57csodi" path="res://scripts/obstacleMove.gd" id="1_nvlek"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nvlek"]
-size = Vector2(16, 16)
+size = Vector2(11, 12)
 
 [node name="Banana" type="CharacterBody2D"]
+collision_layer = 2
 script = ExtResource("1_nvlek")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -17,5 +18,5 @@ region_enabled = true
 region_rect = Rect2(31.9095, 0, 15.8649, 16.2742)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, -8)
+position = Vector2(-1.5, -6)
 shape = SubResource("RectangleShape2D_nvlek")

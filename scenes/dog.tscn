@@ -1,11 +1,12 @@
-[gd_scene load_steps=13 format=3 uid="uid://c7t7pgxk8ocvn"]
+[gd_scene load_steps=15 format=3 uid="uid://c7t7pgxk8ocvn"]
 
 [ext_resource type="Script" uid="uid://k8jyjcjih12p" path="res://scripts/dog.gd" id="1_kb3ao"]
 [ext_resource type="Texture2D" uid="uid://chnbvq22d12f5" path="res://assets/sprites/Joe and Dog/walk.png" id="2_vwjdu"]
 [ext_resource type="Texture2D" uid="uid://bhn1bh5n75biq" path="res://assets/sprites/Joe and Dog/bark.png" id="3_qjqk5"]
+[ext_resource type="Texture2D" uid="uid://cmriropdmei3k" path="res://assets/sprites/Joe and Dog/lose.png" id="4_gmowd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kb3ao"]
-size = Vector2(11, 14)
+size = Vector2(11, 11)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vwjdu"]
 atlas = ExtResource("2_vwjdu")
@@ -26,6 +27,10 @@ region = Rect2(16, 0, 16, 16)
 [sub_resource type="AtlasTexture" id="AtlasTexture_gmowd"]
 atlas = ExtResource("2_vwjdu")
 region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ei5el"]
+atlas = ExtResource("4_gmowd")
+region = Rect2(16, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iaoh4"]
 atlas = ExtResource("2_vwjdu")
@@ -69,6 +74,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_ei5el")
+}],
+"loop": true,
+"name": &"lose",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_iaoh4")
 }, {
 "duration": 1.0,
@@ -83,14 +96,14 @@ animations = [{
 script = ExtResource("1_kb3ao")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, -7)
+position = Vector2(-0.5, -5.5)
 shape = SubResource("RectangleShape2D_kb3ao")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 position = Vector2(-1, -8)
 sprite_frames = SubResource("SpriteFrames_tpbal")
-animation = &"bark"
+animation = &"lose"
 autoplay = "front"
 
 [node name="BarkCooldown" type="Timer" parent="."]
