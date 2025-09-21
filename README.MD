@@ -37,6 +37,6 @@ a runner-type game a la Paper Boy, where you guide the runner instead of control
 - [x] different title screen music
 
 ## Post Development 
-- [ ] export as runnable HTML
+- [x] export as runnable HTML
 - [ ] game cover
 
