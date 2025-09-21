@@ -1,5 +1,5 @@
 # Buckethead Joe
-[Successfully submitted to GBJAM 13](https://retrovii.itch.io/buckethead-joe)
+[Successfully submitted to GBJAM 13](https://retrovii.itch.io/buckethead-joe) <br>
 a runner-type game, where you guide the runner instead of controlling them.
 
 ## To-do (sorted by priority)
