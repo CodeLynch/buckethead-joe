@@ -1,0 +1,22 @@
+[gd_scene load_steps=8 format=3 uid="uid://0dobdwarw1c1"]
+
+[ext_resource type="Script" uid="uid://cy0dsl57csodi" path="res://scripts/obstacleMove.gd" id="1_7ukg5"]
+[ext_resource type="Script" uid="uid://bnsq03llkq5xt" path="res://scripts/obstacle.gd" id="2_drdry"]
+[ext_resource type="Resource" uid="uid://iwpm1ksquvg" path="res://assets/resources/stats/black_cat.tres" id="3_cjuko"]
+[ext_resource type="Resource" uid="uid://ce38iwcwophnl" path="res://assets/resources/stats/biker.tres" id="4_5oy3q"]
+[ext_resource type="Resource" uid="uid://dgymmrvedv0ic" path="res://assets/resources/stats/couple.tres" id="5_0drx6"]
+[ext_resource type="Resource" uid="uid://fctie5vwdfkp" path="res://assets/resources/stats/banana.tres" id="6_u4pg3"]
+[ext_resource type="Resource" uid="uid://c01gjo4lj8ncr" path="res://assets/resources/stats/ladder.tres" id="7_kxyuj"]
+
+[node name="Obstacle" type="CharacterBody2D"]
+texture_filter = 1
+collision_layer = 2
+script = ExtResource("1_7ukg5")
+obstacle_resources_array = Array[ExtResource("2_drdry")]([ExtResource("3_cjuko"), ExtResource("4_5oy3q"), ExtResource("5_0drx6"), ExtResource("6_u4pg3"), ExtResource("7_kxyuj")])
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -8)
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -6.5)

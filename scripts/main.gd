@@ -8,6 +8,7 @@ extends Node2D
 @export var SCORE_MOD: float = 0.0005
 @onready var score_text: RichTextLabel = $"UI/TextBox/ScoreLabel"
 
+
 var score: int = 0
 var game_speed: float
 

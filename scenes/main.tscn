@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://gg0arcqtqeq2"]
+[gd_scene load_steps=13 format=3 uid="uid://gg0arcqtqeq2"]
 
 [ext_resource type="PackedScene" uid="uid://c7t7pgxk8ocvn" path="res://scenes/dog.tscn" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://cvi6luebq1c8s" path="res://scripts/main.gd" id="1_tipki"]
@@ -6,13 +6,9 @@
 [ext_resource type="Script" uid="uid://bc7yxisn3rqu1" path="res://scripts/background.gd" id="3_jyhfs"]
 [ext_resource type="Texture2D" uid="uid://b0ou2o4fqjtk" path="res://assets/sprites/BG/tiles.png" id="3_sugp2"]
 [ext_resource type="Script" uid="uid://da3g5nyeemaow" path="res://scripts/obstacle_spawner.gd" id="4_tipki"]
-[ext_resource type="PackedScene" uid="uid://doeqimnnvuige" path="res://scenes/obstacles/banana.tscn" id="5_trceg"]
-[ext_resource type="PackedScene" uid="uid://cc0gyfrffnocf" path="res://scenes/obstacles/biker.tscn" id="6_a8y0u"]
+[ext_resource type="PackedScene" uid="uid://0dobdwarw1c1" path="res://scenes/obstacle.tscn" id="5_85g3d"]
 [ext_resource type="Texture2D" uid="uid://ds6atrvhxpeje" path="res://assets/sprites/BG/UI.png" id="6_tefeu"]
-[ext_resource type="PackedScene" uid="uid://bh8kacfwsvl5j" path="res://scenes/obstacles/black_cat.tscn" id="7_jkv2x"]
 [ext_resource type="FontFile" uid="uid://b2vlfvcw0nklx" path="res://assets/Early GameBoy.ttf" id="7_o6xl0"]
-[ext_resource type="PackedScene" uid="uid://cc6stk1koq18l" path="res://scenes/obstacles/couple.tscn" id="8_jbj1t"]
-[ext_resource type="PackedScene" uid="uid://dtgfp4boicaan" path="res://scenes/obstacles/ladder.tscn" id="9_muem4"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0wfyh"]
 
@@ -42,6 +38,7 @@ sources/0 = SubResource("TileSetAtlasSource_jyhfs")
 script = ExtResource("1_tipki")
 JOE_START_POS = Vector2i(75, 120)
 DOG_START_POS = Vector2i(75, 87)
+START_GAME_SPEED = 70.0
 
 [node name="Dog" parent="." instance=ExtResource("1_ig7tw")]
 z_index = 2
@@ -56,8 +53,9 @@ speed = 70
 
 [node name="ObstacleSpawner" type="Node2D" parent="."]
 z_index = 1
+position = Vector2(0, 13)
 script = ExtResource("4_tipki")
-obstacles = Array[PackedScene]([ExtResource("5_trceg"), ExtResource("6_a8y0u"), ExtResource("7_jkv2x"), ExtResource("8_jbj1t"), ExtResource("9_muem4")])
+obstacle = ExtResource("5_85g3d")
 X_MIN_LIMIT = 40
 X_MAX_LIMIT = 120
 MIN_COOLDOWN = 2.0
@@ -69,7 +67,7 @@ autostart = true
 
 [node name="Bounds" type="Node2D" parent="."]
 
-[node name="Top" type="StaticBody2D" parent="Bounds" groups=["obstacles"]]
+[node name="Top" type="StaticBody2D" parent="Bounds"]
 position = Vector2(67, 0)
 rotation = 3.14159
 collision_layer = 4

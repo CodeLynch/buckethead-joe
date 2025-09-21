@@ -32,7 +32,7 @@ script = ExtResource("1_sa3yf")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(79, 71)
+position = Vector2(80, 72)
 sprite_frames = SubResource("SpriteFrames_mgrm8")
 autoplay = "default"
 frame = 1

@@ -18,7 +18,7 @@ func follow(x_pos: float):
 	else:
 		sprite.flip_h = true
 		
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if speed_mod > 1:
 		speed = speed * speed_mod
 	 

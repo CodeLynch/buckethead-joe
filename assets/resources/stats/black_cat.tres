@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Obstacle" load_steps=4 format=3 uid="uid://iwpm1ksquvg"]
+
+[ext_resource type="SpriteFrames" uid="uid://4q443l1olq8t" path="res://assets/resources/sprite_frames/black_cat.tres" id="1_3b5jg"]
+[ext_resource type="Shape2D" uid="uid://bisetcxy7exct" path="res://assets/resources/colliders/black_cat.tres" id="2_tsk21"]
+[ext_resource type="Script" uid="uid://bnsq03llkq5xt" path="res://scripts/obstacle.gd" id="3_c22x7"]
+
+[resource]
+script = ExtResource("3_c22x7")
+move_horizontal = true
+boosted = false
+boost_multiplier = 0.0
+obstacleAnim = ExtResource("1_3b5jg")
+obstacle_collider = ExtResource("2_tsk21")
+metadata/_custom_type_script = "uid://bnsq03llkq5xt"

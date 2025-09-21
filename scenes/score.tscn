@@ -1,20 +1,72 @@
-[gd_scene load_steps=4 format=3 uid="uid://0sylbuvh75ut"]
+[gd_scene load_steps=12 format=3 uid="uid://0sylbuvh75ut"]
 
 [ext_resource type="FontFile" uid="uid://b2vlfvcw0nklx" path="res://assets/Early GameBoy.ttf" id="1_8juob"]
 [ext_resource type="Script" uid="uid://cyanh8or2bqt4" path="res://scripts/score_scene_script.gd" id="1_bak1h"]
+[ext_resource type="Texture2D" uid="uid://chnbvq22d12f5" path="res://assets/sprites/Joe and Dog/walk.png" id="3_lew60"]
+[ext_resource type="Texture2D" uid="uid://bhn1bh5n75biq" path="res://assets/sprites/Joe and Dog/bark.png" id="4_68bkv"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bak1h"]
-bg_color = Color(0.129412, 0.462745, 0.8, 1)
+bg_color = Color(1, 0.490196, 0.431373, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xcjqx"]
+atlas = ExtResource("3_lew60")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3eqfp"]
+atlas = ExtResource("3_lew60")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x4ir2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xcjqx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3eqfp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7w2o3"]
+atlas = ExtResource("4_68bkv")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4qrk4"]
+atlas = ExtResource("3_lew60")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_usgcu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7w2o3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4qrk4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Node2D" type="Control"]
 layout_mode = 3
 anchors_preset = 0
+offset_left = -6.0
+offset_top = 6.0
+offset_right = -6.0
+offset_bottom = 6.0
 script = ExtResource("1_bak1h")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 4.0
+offset_top = -7.0
+offset_right = 44.0
+offset_bottom = 33.0
 scale = Vector2(4.09114, 3.69746)
 theme_override_styles/panel = SubResource("StyleBoxFlat_bak1h")
 
@@ -52,5 +104,19 @@ tab_size = 5
 wait_time = 5.0
 one_shot = true
 autostart = true
+
+[node name="Joe" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(139, 127)
+sprite_frames = SubResource("SpriteFrames_x4ir2")
+autoplay = "default"
+frame_progress = 0.664962
+
+[node name="Dog" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(152, 127)
+sprite_frames = SubResource("SpriteFrames_usgcu")
+autoplay = "default"
+frame_progress = 0.642573
 
 [connection signal="timeout" from="Delay" to="." method="_on_delay_timeout"]

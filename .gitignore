@@ -9,3 +9,4 @@
 *.ttf.*
 *.wav
 *.wav.*
+/build
