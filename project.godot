@@ -13,7 +13,9 @@ config_version=5
 config/name="BucketheadJoe"
 run/main_scene="uid://dg1bshj5bsx50"
 config/features=PackedStringArray("4.4", "GL Compatibility")
-config/icon="res://icon.svg"
+boot_splash/use_filter=false
+boot_splash/image="uid://fvdjcgyk71r1"
+config/icon="uid://dah6ct5il2x27"
 
 [autoload]
 

@@ -8,4 +8,5 @@ script = ExtResource("1_tn5dr")
 [node name="BGM" type="AudioStreamPlayer" parent="."]
 
 [node name="SFX" type="AudioStreamPlayer" parent="."]
-volume_db = -20.85
+volume_db = -20.0
+playback_type = 1

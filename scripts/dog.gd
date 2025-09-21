@@ -50,7 +50,6 @@ func _physics_process(_delta: float) -> void:
 	for index in get_slide_collision_count():
 		var collision = get_slide_collision(index)
 		if collision.get_collider().is_in_group("obstacles"): 
-			print("you hit an obstacle")
 			got_hit.emit()
 
 func _on_bark_cooldown_timeout() -> void:

@@ -1,5 +1,6 @@
 # Buckethead Joe
-a runner-type game a la Paper Boy, where you guide the runner instead of controlling them.
+[Successfully submitted to GBJAM 13](https://retrovii.itch.io/buckethead-joe)
+a runner-type game, where you guide the runner instead of controlling them.
 
 ## To-do (sorted by priority)
 
@@ -10,7 +11,7 @@ a runner-type game a la Paper Boy, where you guide the runner instead of control
 - [x] spawn obstacles
 - [x] ~~Joe HP &~~ Lose condition just one hp
 - [x] Score
-- [ ] obstacle movements
+- [x] obstacle movements
 
 ### Sprites
 - [x] placeholder background
@@ -24,8 +25,8 @@ a runner-type game a la Paper Boy, where you guide the runner instead of control
     - [x] couple
     - [x] black cat
     - [x] biker
-~~- [ ] Joe damaged animations~~
-~~- [ ] Dog damaged animations~~
+- [x]~~Joe damaged animations~~ (immediate lose on hit)
+- [x]~~Dog damaged animations~~ (immediate lose on hit)
 - [x] Joe game over animation
 - [x] Dog game over animation
 - [x] UI

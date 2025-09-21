@@ -1,12 +1,12 @@
 extends Node2D
 
 # BGM
-var TITLE_SCREEN_THEME:AudioStream = preload("res://assets/music/Title.wav")
-var GAME_THEME:AudioStream = preload("res://assets/music/Game.wav")
-var GAME_OVER_THEME:AudioStream = preload("res://assets/music/GameOver.wav")
+var TITLE_SCREEN_THEME:AudioStream = load("res://assets/music/Title.wav")
+var GAME_THEME:AudioStream = load("res://assets/music/Game.wav")
+var GAME_OVER_THEME:AudioStream = load("res://assets/music/GameOver.wav")
 
 # SFX
-var BARK_SFX: AudioStream = preload("res://assets/sfx/bark.wav")
+var BARK_SFX: AudioStream = load("res://assets/sfx/bark.wav")
 
 @onready var BGMNode: AudioStreamPlayer = $BGM
 @onready var SFXNode: AudioStreamPlayer = $SFX
